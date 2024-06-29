@@ -1,0 +1,52 @@
+/* Arquivo resources/css/app.css */
+
+/* Importando o Bootstrap */
+@import url("bootstrap.min.css");
+
+/* Seus estilos personalizados abaixo */
+
+/* Estilos personalizados para o navbar */
+
+/* Ajustar o espaçamento vertical do navbar */
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Ajustar a cor e tamanho do texto da marca do navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #333; /* cor do texto da marca */
+}
+
+/* Ajustar o espaçamento e cor do texto dos links do navbar */
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    color: #333; /* cor do texto dos links */
+}
+
+/* Mudar a cor do link ativo no navbar */
+.navbar-nav .nav-item.active .nav-link {
+    color: #007bff; /* cor do link ativo */
+}
+
+/* Alinhar os itens à direita no navbar */
+.navbar-nav.ml-auto {
+    margin-right: 0; /* remover margem padrão à esquerda */
+}
+
+/* Ajustar o espaçamento interno do toggler */
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+}
+
+/* Estilo para o botão do toggler do navbar */
+.navbar-toggler-icon {
+    background-color: #333; /* cor de fundo do ícone do toggler */
+}
+
+/* Ajustar a cor de fundo e a sombra do navbar */
+.navbar-light {
+    background-color: #f8f9fa; /* cor de fundo do navbar */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* sombra do navbar */
+}
