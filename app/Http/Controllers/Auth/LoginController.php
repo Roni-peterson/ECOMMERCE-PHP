@@ -15,14 +15,14 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('usuario', 'password');
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/home');
         }
 
         return back()->withErrors([
-            'email' => 'As credenciais fornecidas estão incorretas.',
+            'usuario' => 'As credenciais fornecidas estão incorretas.',
         ]);
     }
 
