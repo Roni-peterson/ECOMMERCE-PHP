@@ -3,8 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListarUsuariosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MostrarUsuariosController;
 
 
 // Rota inicial redireciona para login
@@ -30,4 +30,9 @@ Route::get('/home', function () {
 })->middleware(['auth'])->name('home');
 
 // Rota Listar Usuarios
-Route::middleware('auth')->get('/listar-usuarios', [ListarUsuariosController::class, 'index'])->name('listar.usuarios');
+Route::get('/listar-usuarios', [MostrarUsuariosController::class, 'index'])->name('listar.usuarios');
+
+//Rota Editar Usuarios
+Route::get('/usuarios/{id}/editar', [MostrarUsuariosController::class, 'edit'])->name('usuarios.editar');
+Route::put('/usuarios/{id}', [MostrarUsuariosController::class, 'update'])->name('usuarios.update');
+
