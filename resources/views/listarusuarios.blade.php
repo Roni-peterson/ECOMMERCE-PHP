@@ -3,13 +3,8 @@
 @section('title', 'Listar Usuários')
 
 @section('content')
+    @include('partials.header')
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <h4 class="float-left">Usuários</h4>
-                <a href="{{ route('register') }}" class="float-right">Novo usuário</a>
-            </div>
-        </div>
         <div class="row mt-4">
             <div class="col">
                 <table class="table">

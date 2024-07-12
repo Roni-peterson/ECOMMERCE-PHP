@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="home">Ecommerce</a>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{ url('/') }}">
+        <img src="{{ asset('images/logoindiana.png') }}" alt="Logo" style="height: 30px;">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,7 +27,7 @@
                             Embalagem
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="{{ route('listar.almoxarifado') }}">Almoxarifado</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
@@ -46,37 +48,36 @@
                     </li>
                 @endif
                 @if (Auth::user()->role == 'admin')
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Usuários
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                            <a class="dropdown-item" href="{{ route('listar.usuarios') }}">Listar Usuários</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('listar.usuarios') }}">Usuários</a>
                     </li>
                 @endif
             @endauth
         </ul>
         <ul class="navbar-nav ml-auto">
             @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>
+                <!-- Show login/register links here if needed -->
             @else
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }}
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownUser" role="button" data-toggle="dropdown" aria-expanded="false">
+                        @php
+                            $name = Auth::user()->name;
+                            $initials = '';
+                            foreach (explode(' ', $name) as $word) {
+                                $initials .= strtoupper($word[0]);
+                            }
+                        @endphp
+                        <div class="initials-circle">
+                            {{ $initials }}
+                        </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUser">
+                        <div class="dropdown-header user-name">{{ Auth::user()->name }}</div>
+                        <div class="dropdown-header user-email">{{ Auth::user()->email }}</div>
+                        <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                             @csrf
-                            <button type="submit" class="dropdown-item">Logout</button>
+                            <button type="submit" class="dropdown-item btn-logout">Sair</button>
                         </form>
                     </div>
                 </li>
