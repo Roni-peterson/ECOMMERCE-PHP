@@ -23,8 +23,6 @@ class AlmoxController extends Controller
     {
         $almox = Almox::findOrFail($id);
         
-        $almox->descricao = $request->input('descricao');
-        $almox->estoque = $request->input('estoque');
         $almox->data_solicitacao_passada = $request->input('data_solicitacao_passada');
         $almox->data_solicitacao_atual = $request->input('data_solicitacao_atual');
         $almox->quantidade_solicitada = $request->input('quantidade_solicitada');
@@ -34,5 +32,23 @@ class AlmoxController extends Controller
         $almox->save();
 
         return redirect()->route('listar.almoxarifado')->with('success', 'Registro atualizado com sucesso!');
+    }
+
+    public function create()
+    {
+        return view('cadastraralmox');
+    }
+
+    public function store(Request $request)
+    {
+        $almox = new Almox();
+        
+        $almox->sku = $request->input('sku');
+        $almox->descricao = $request->input('descricao');
+        $almox->estoque = $request->input('estoque');
+
+        $almox->save();
+
+        return redirect()->route('listar.almoxarifado')->with('success', 'Registro criado com sucesso!');
     }
 }

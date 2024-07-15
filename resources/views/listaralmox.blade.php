@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Lista de Almoxarifado</h1>
-        <table class="table">
+    <div>
+        @include('partials.headeralmox')
+    </div>
+    <div class="container table-container">
+        <table class="table table-custom">
             <thead>
                 <tr>
                     <th>SKU</th>
@@ -11,8 +13,8 @@
                     <th>ESTOQUE</th>
                     <th>DT SOL PASSADA</th>
                     <th>DT SOL ATUAL</th>
-                    <th>QTDE SOLICITADA</th>
-                    <th>QTDE RECEBIDA</th>
+                    <th>SOLICITADO</th>
+                    <th>RECEBIDO</th>
                     <th>DIFERENÇA</th>
                     <th>AÇÕES</th>
                 </tr>
@@ -28,9 +30,10 @@
                     <td>{{ $almox->quantidade_solicitada }}</td>
                     <td>{{ $almox->quantidade_recebida }}</td>
                     <td>{{ $almox->diferenca_recebido_solicitado }}</td>
-                    <td>
-                        <a href="{{ route('almox.edit', $almox->id) }}" class="btn btn-sm btn-primary">
-                            <i class="fas fa-edit"></i> Editar
+                    <td class="action-buttons">
+                        <!-- Ação de editar fora da tabela -->
+                        <a href="{{ route('almox.edit', $almox->id) }}" class="edit-icon">
+                            <i class="fas fa-pencil-alt"></i>
                         </a>
                     </td>
                 </tr>
@@ -39,3 +42,4 @@
         </table>
     </div>
 @endsection
+

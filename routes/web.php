@@ -9,7 +9,7 @@ use App\Http\Controllers\AlmoxController;
 
 // Rota inicial redireciona para login
 Route::get('/', function () {
-    return redirect('/login');
+    return redirect('/home');
 });
 
 // Rotas de autenticação
@@ -40,3 +40,6 @@ Route::get('/almoxarifado', [AlmoxController::class, 'index'])->name('listar.alm
 Route::get('/almox/{id}/edit', [AlmoxController::class, 'edit'])->name('almox.edit');
 Route::put('/almox/{id}', [AlmoxController::class, 'update'])->name('almox.update');
 
+// Rotas para Cadastrar Almoxarifado
+Route::get('/almoxarifado/create', [AlmoxController::class, 'create'])->name('almox.create');
+Route::post('/almoxarifado', [AlmoxController::class, 'store'])->name('almox.store');

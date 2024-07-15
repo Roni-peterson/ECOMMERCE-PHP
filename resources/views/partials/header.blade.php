@@ -1,6 +1,6 @@
 <!-- resources/views/partials/header.blade.php -->
 
-<div class="container-fluid">
+<div class="container" >
     <div class="row">
         <div class="col">
             <h4 class="float-left">Usuários</h4>

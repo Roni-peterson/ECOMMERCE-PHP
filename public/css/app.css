@@ -1,18 +1,24 @@
-/* Arquivo resources/css/app.css */
-
 /* Importando o Bootstrap */
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
 
-/* Seus estilos personalizados abaixo */
+/* Estilos personalizados abaixo */
 
-/* Estilos personalizados para o navbar */
+/* ------------------------------------- */
+/* Estilos do Navbar */
+/* ------------------------------------- */
 
 /* Ajustar o espaçamento vertical do navbar */
 .navbar {
+    width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
     min-height: 60px; /* Altura mínima do navbar */
     height: 60px; /* Altura do navbar */
+}
+
+/* Ajustar a margem superior do container abaixo do navbar */
+.header-container {
+    top: 60px; /* Ajuste a margem superior conforme necessário */
 }
 
 /* Ajustar a cor e tamanho do texto da marca do navbar */
@@ -29,7 +35,7 @@
 
 /* Mudar a cor do link ativo no navbar */
 .navbar-nav .nav-item.active .nav-link {
-    color: #007bff; /* cor do link ativo */
+    color: #072AC8; /* cor do link ativo */
 }
 
 /* Alinhar os itens à direita no navbar */
@@ -49,28 +55,130 @@
 
 /* Ajustar a cor de fundo e a sombra do navbar */
 .navbar-light {
-    background-color: #1E96FC; /* cor de fundo do navbar */
+    background-color: #072AC8; /* cor de fundo do navbar */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* sombra do navbar */
 }
+/* ------------------------------------- */
+/* Estilos diversos de itens do Navbar */
+/* ------------------------------------- */
 
-/* Tabela de estilos */
-table {
+/* Estilos para o círculo de iniciais */
+.initials-circle {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    background-color: lightblue; /* Azul, você pode mudar a cor */
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+/* Estilos para o dropdown do login*/
+
+.dropdown-header.user-name {
+    font-weight: bold; /* Nome em negrito */
+    color: #000; /* Cor preta */
+}
+
+.dropdown-header.user-email {
+    color: #007bff; /* Cor azul */
+}
+
+.dropdown-item.btn-logout {
+    background-color: #072AC8; /* Cor de fundo laranja */
+    color: white; /* Texto branco */
+    padding: 0.375rem 1.5rem; /* Ajuste o padding para definir o tamanho do botão */
+    font-size: 14px; /* Tamanho da fonte */
+    font-weight: bold;
+    line-height: 1.5; /* Altura do botão */
+    width: auto; /* Define a largura do botão como automática */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-right: 20px !important; /* Ajuste o espaçamento à direita com importância */
+    display: inline-block;
+}
+
+.dropdown-item.btn-logout:hover {
+    background-color: #007bff; /* Cor de fundo laranja escuro no hover */
+}
+
+
+/* ------------------------------------- */
+/* Estilos das Tabelas */
+/* ------------------------------------- */
+
+.table-container {
+    margin: -10; /* Centraliza o container horizontalmente */
+    padding: 0; /* Ajuste o valor conforme necessário */
+}
+
+.table {
     width: 100%;
     border-collapse: collapse;
-}
-th, td {
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
-    padding: 8px;
 }
-th {
-    background-color: #f2f2f2;
+
+/* Cabeçalho da tabela */
+.table th {
+    background-color: #007bff; /* Cor de fundo do cabeçalho */
+    color: black; /* Cor do texto do cabeçalho */
+    border-bottom: 12px dashed white; /* Borda inferior tracejada do cabeçalho */
+    padding: 12px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento do texto */
+    white-space: nowrap; /* Evita quebra de linha */
+    font-size: 16px; /* Tamanho da fonte Arial 12 */
 }
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+
+/* Corpo da tabela */
+.table td {
+    border-bottom: 2px dashed #ddd; /* Borda inferior tracejada das células */
+    border-right: 2px dashed #ddd; /* Borda direita tracejada das células */
+    white-space: nowrap; /* Evita quebra de linha */
+    font-size: 12px; /* Tamanho da fonte Arial 10 */
 }
-tr:hover {
-    background-color: #ddd;
+
+/* Linhas alternadas */
+.table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo das linhas pares */
 }
+
+/* Hover nas linhas */
+.table tr:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+/* Celular de ações */
+.table .action-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo do ícone de edição */
+.edit-icon {
+    color: #4CAF50; /* Cor do ícone */
+    font-size: 1.25rem; /* Tamanho do ícone */
+    transition: color 0.3s ease; /* Transição suave para a cor */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.edit-icon:hover {
+    color: #0056b3; /* Cor do ícone ao passar o mouse */
+}
+
+/* Alinhamento do conteúdo */
+.table th, .table td {
+    text-align: left; /* Alinhamento do texto */
+}
+
+/* ------------------------------------- */
+/* Outros Estilos */
+/* ------------------------------------- */
 
 /* Ajusta a margem superior do container */
 .container {
@@ -83,42 +191,3 @@ h4 {
     margin-bottom: 10px;
 }
 
-/* Estilos para o círculo de iniciais */
-.initials-circle {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    border-radius: 50%;
-    background-color: #072AC8; /* Azul, você pode mudar a cor */
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-.dropdown-header.user-name {
-    font-weight: bold; /* Nome em negrito */
-    color: #000; /* Cor preta */
-}
-
-.dropdown-header.user-email {
-    color: #007bff; /* Cor azul */
-}
-
-.dropdown-item.btn-logout {
-    background-color: #ff8c00; /* Cor de fundo laranja */
-    color: #fff; /* Texto branco */
-    padding: 0.375rem 1.5rem; /* Ajuste o padding para definir o tamanho do botão */
-    font-size: 16px; /* Tamanho da fonte */
-    line-height: 1.5; /* Altura do botão */
-    width: auto; /* Define a largura do botão como automática */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-right: 20px !important; /* Ajuste o espaçamento à direita com importância */
-    display: inline-block;
-}
-
-.dropdown-item.btn-logout:hover {
-    background-color: #e68a00; /* Cor de fundo laranja escuro no hover */
-}
